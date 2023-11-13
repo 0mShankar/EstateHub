@@ -5,6 +5,7 @@ import SignUp from "./Pages/SignUp";
 import About from "./Pages/About";
 import Profile from "./Pages/profile";
 import Header from "./Components/Header";
+import PrivateRoute from "./Components/PrivateRoute";
 
 
 
@@ -17,7 +18,9 @@ return <BrowserRouter>
               <Route path="/sign-in" element={<SignIn/>}/>
               <Route path="/sign-up" element={<SignUp/>}/>
               <Route path="/about" element={<About/>}/>
+              <Route element={<PrivateRoute/>}>
               <Route path="/profile" element={<Profile/>}/>
+              </Route>
             </Routes>
       </BrowserRouter>;
       
