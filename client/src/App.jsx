@@ -3,9 +3,11 @@ import Home from "./Pages/Home";
 import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
 import About from "./Pages/About";
-import Profile from "./Pages/profile";
+import Profile from "./Pages/Profile";
 import Header from "./Components/Header";
 import PrivateRoute from "./Components/PrivateRoute";
+import CreateListing from "./Pages/createListing";
+
 
 
 
@@ -20,6 +22,7 @@ return <BrowserRouter>
               <Route path="/about" element={<About/>}/>
               <Route element={<PrivateRoute/>}>
               <Route path="/profile" element={<Profile/>}/>
+              <Route path="/create-listing" element={<CreateListing/>}/>
               </Route>
             </Routes>
       </BrowserRouter>;
