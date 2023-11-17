@@ -7,6 +7,7 @@ const router=express.Router();
 
 router.post('/create',verifyToken,  createListing);
 router.delete('/delete.:id', verifyToken, deleteListing);
-router.post('/update/:',verifyToken, updateListing)
+router.post('/update/:',verifyToken, updateListing);
+router.get('/get/:id',verifyToken,updateListing);
 
 export default router;
