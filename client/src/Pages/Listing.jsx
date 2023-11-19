@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom'
 import {Swiper ,SwiperSlide} from 'swiper/react';
 import SwiperCore from 'swiper';
 import {Navigation} from 'swiper/modules';
+import contact from '../Components/contact';
 
 
 
@@ -13,7 +14,10 @@ export default function Listing() {
     const [listing, setListing] =useState(null);
     const [loading, setLoading] =useState(false);
     const [error, setError] =useState(false);
-    const params =useParams()
+    const params =useParams();
+    const {currentUser} =useSelector((state)=>state.user);
+    const [contact, setContact]=useState(false);
+
     useEffect(()=>{
         const fetchListing=async()=>{
             try {
@@ -51,6 +55,11 @@ export default function Listing() {
                     </SwiperSlide>
             )}
         </Swiper>
+        {listing.type}
+        {currentUser && listing.userRef !== currentUser._id && !contact &&(
+        <button onClick={()=>setContact(true)} className='bg-slate-700 text-white rounded-lg  uppercase hover:opacity-95 p-3'>contact Landlord</button>
+        )}
+        {contact && <contact listing={listing}/>}
         </div>
     )}
    </main>
